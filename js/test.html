@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var x = Math.floor(Math.random() * 9) + 1;
+    var y = Math.floor(Math.random()) * 9 + 1;
+    var answer = x * y;
+    var isAnswer = false;
+    console.log(answer);
+    while (!isAnswer) {
+        var num = prompt(String(x) + '곱하기' + String(y) + '의 답은 ?');
+        if (Number(num) === answer) {
+            alert("정답");
+            isAnswer = true;
+        } else {
+            alert("틀렸습니다.");
+        }
+    }
+</script>
+</body>
+</html>
