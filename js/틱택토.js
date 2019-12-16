@@ -3,6 +3,8 @@ var table = document.createElement('table');
 var lines = [];
 var cells = [];
 var turn = 'X';
+var word = document.createElement('h1');
+var count = 0;
 /*
     tag들도 배열에 넣어서 사용할 수 있다.
     cells들은 tr, td의 2차원 배열로 이루어져 있다.
@@ -41,6 +43,14 @@ var isWinner = function (lineNum, cellNum) {
     return false;
 };
 
+function clearCell() {
+    cells.forEach(function (line) {
+        line.forEach(function (cell) {
+            cell.textContent = '';
+        });
+    });
+}
+
 var clickListener = function (event) {
 
     // console.log(event.target); 현재 자신의 태그
@@ -57,27 +67,27 @@ var clickListener = function (event) {
     //.value는 주로 input에서 사용한다.
     if (cells[lineNum][cellNum].textContent === '') { // 칸이 있을 경우
         cells[lineNum][cellNum].textContent = turn;
+        count += 1;
 
         //세칸이 다 채워졌을까?
         var isFull = isWinner(lineNum, cellNum);
 
+        if(count === 9){
+            word.textContent = "무 승 부";
+            turn = 'X';
+            body.appendChild(word);
+            clearCell();
+        }
+
         if (isFull) {
             console.log(turn, "님이 승리");
-            var word = document.createElement('h1');
             word.textContent = turn + " 님이 승리";
             body.appendChild(word);
             turn = 'X';
-            cells.forEach(function (line) {
-                line.forEach(function (cell) {
-                    cell.textContent = '';
-                });
-            });
+            count = 0;
+            clearCell();
         } else {
-            if (turn === 'X') {
-                turn = 'O';
-            } else {
-                turn = 'X';
-            }
+            turn = turn === 'X' ? 'O' : 'X';
         }
     }
 
