@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>가위바위보</title>
+    <style>
+        #computer{
+            width: 120px;
+            height : 140px;
+        }
+    </style>
+</head>
+<body>
+<div id="computer"></div>
+<div>
+    <button id="scissor" class="btn">가위</button>
+    <button id="rock" class="btn">바위</button>
+    <button id="paper" class="btn">보</button>
+</div>
+<h1 id="result"></h1>
+<div>
+    <h3>이긴횟수: <span id="winCount"></span></h3>
+    <h3>진횟수: <span id="loseCount"></span></h3>
+    <h3>비긴횟수: <span id="drawCount"></span></h3>
+</div>
+<script src=".././js/가위바위보.js"></script>
+</body>
+</html>
